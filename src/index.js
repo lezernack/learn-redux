@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { configureStore } from "redux";
+import { legacy_createStore } from "redux";
 
 //STORE -> GLOBALIZED STATE
 
@@ -29,13 +29,14 @@ const counter = (state = 0, action) => {
   }
 };
 
-let store = configureStore(counter);
+let store = legacy_createStore(counter);
 
 //Display it in the console
 store.subscribe(() => console.log(store.getState()));
 
 //DISPATCH
-store.dispatch(increment);
+store.dispatch(increment());
+store.dispatch(decrement());
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
