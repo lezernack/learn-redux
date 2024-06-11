@@ -5,6 +5,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { legacy_createStore } from "redux";
 import allReducers from "./reducers";
+import { Provider } from "react-redux";
 
 const store = legacy_createStore(
   allReducers,
@@ -14,7 +15,9 @@ const store = legacy_createStore(
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>
 );
 
