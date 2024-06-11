@@ -11,9 +11,13 @@ function App() {
   return (
     <div className="App">
       <h1>Counter {counter}</h1>
-      <div className="btn">
+      <div className="addBtn">
         <button onClick={() => dispatch(increment(3))}>+</button>
-        <button onClick={() => dispatch(decrement(3))}>-</button>
+      </div>
+      <div className="minusBtn">
+        <button className="minusBtn" onClick={() => dispatch(decrement(3))}>
+          -
+        </button>
       </div>
 
       {isLogged ? <h3>Valuable Information I shouldn't see</h3> : ""}
